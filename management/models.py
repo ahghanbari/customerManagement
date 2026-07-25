@@ -4,14 +4,14 @@ from django.db import models
 
 
 class Customer(models.Model):
-    name = models.CharField(max_length=100)
-    date = models.DateField()
-    machine = models.CharField(max_length=100)
-    problems = models.TextField()
-    tools = models.TextField()
-    tools_total = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True)
-    cost = models.TextField()
-    cost_total = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True)
+    name = models.CharField(max_length=100, verbose_name='نام مشتری')
+    date = models.DateField(verbose_name='تاریخ')
+    machine = models.CharField(max_length=100, verbose_name='برند دستگاه')
+    problems = models.TextField(verbose_name='ایراد دستگاه')
+    tools = models.TextField(verbose_name='هزینه ابزار')
+    tools_total = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True, verbose_name='جمع هزینه ابزار')
+    cost = models.TextField(verbose_name='اجرت')
+    cost_total = models.DecimalField(max_digits=9, decimal_places=0, null=True, blank=True, verbose_name='جمع هزینه اجرت')
     image = models.ImageField(upload_to='customer_images/', null=True, blank=True)
 
     def save(self, *args, **kwargs):

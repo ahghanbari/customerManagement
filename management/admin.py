@@ -7,9 +7,14 @@ from .models import Customer
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'get_date_jalali', 'machine', 'tools_total', 'cost_total')
+    list_display = ('get_name', 'get_date_jalali', 'machine', 'tools_total', 'cost_total')
     list_filter = ('date', 'machine')
     search_fields = ('name', 'machine', 'problems', 'tools', 'cost')
+
     @admin.display(description='تاریخ ', ordering='date')
     def get_date_jalali(self, obj):
         return date2jalali(obj.date).strftime('%a, %d %b %Y')
+
+    @admin.display(description='نام مشتری', ordering='name')
+    def get_name(self, obj):
+        return obj.name
