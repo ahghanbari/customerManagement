@@ -1,4 +1,5 @@
 {% load jalali_tags %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,13 @@
 <body>
     <h1>Customer List</h1>
     <ul>
-        {% for customer in customers %}
-            <li>{{ customer.name }} - {{ customer.date|to_jalali}}</li>
-        {% endfor %}
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
+        <link rel="stylesheet" href="{% static 'admin/js/django_jalali.min.css' %}">
+		<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
+        {{ form.media }}
     </ul>
 </body>
 </html>

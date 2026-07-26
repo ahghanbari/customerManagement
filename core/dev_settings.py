@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dsfggf34#%$@821755%c@b=1ew_f4-nc+*gnglov%#m#1muj*&^%vr#gq(neux+rg&'
+SECRET_KEY = 'django-insecure-821755%c@b=1ew_f4-nc+*gnglov%#m#1mujvr#gq(neux+rg&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.home-services.ir']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -119,7 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -128,6 +127,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 JALALI_DATE_DEFAULTS = {
    'LIST_DISPLAY_AUTO_CONVERT': True,
@@ -147,8 +147,10 @@ JALALI_DATE_DEFAULTS = {
     },
 }
 
-LANGUAGE_CODE = 'fa-ir'
+# import locale
+# locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")
+# import jdatetime
+# jdatetime.set_locale(jdatetime.FA_LOCALE)
+# USE_THOUSAND_SEPARATOR = True
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+LANGUAGE_CODE = 'fa-ir'

@@ -1,2 +1,7 @@
+asgiref
+pytz
+setuptools
+Pillow
 Django
+sqlparse
 django-jalali-date
