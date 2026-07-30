@@ -77,6 +77,7 @@
       <tr>
         <th>ماه</th>
         <th>هزینه قطعات</th>
+        <th>سهم همکار</th>
         <th>درآمد</th>
       </tr>
     </thead>
@@ -85,6 +86,7 @@
         <tr class="row{% cycle "1" "2" %}">
           <td>{{ obj.date }}</td>
           <td>{{ obj.tools_total }} تومان</td>
+          <td>{{ obj.partner_fee }} تومان</td>
           <td>{{ obj.cost_total }} تومان</td>
         </tr>
       {% endfor %}
